@@ -1,27 +1,3 @@
-<template>
-  <div v-for="t in tasks" :key="t.id">
-    <div
-      class="card"
-      :style="{ backgroundColor: getBackgroundColor(t.status) }"
-    >
-      <img :src="t.icon" />
-      <div class="card-main">
-        <p class="task-title">{{ t.title }}</p>
-        <p class="description" v-if="t.description">{{ t.description }}👨🏻‍💻</p>
-      </div>
-      <div
-        class="status-detail"
-        :style="{ backgroundColor: getStatusBackgroundColor(t.status) }"
-      >
-        <img
-          style="height: 20px; width: 20px; align-self: center"
-          :src="getStatusImg(t.status)"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 export default {
   data() {
@@ -105,12 +81,39 @@ export default {
           return "/In_progress_round_duotone.svg";
       }
     },
+    openDialog() {
+      window.dialog.showModal();
+    },
   },
   mounted() {
     this.getPosts();
   },
 };
 </script>
+
+<template>
+  <div v-for="t in tasks" :key="t.id">
+    <div
+      class="card"
+      :style="{ backgroundColor: getBackgroundColor(t.status) }"
+    >
+      <img :src="t.icon" />
+      <div class="card-main" @click="getPosts()">
+        <p class="task-title">{{ t.title }}</p>
+        <p class="description" v-if="t.description">{{ t.description }}👨🏻‍💻</p>
+      </div>
+      <div
+        class="status-detail"
+        :style="{ backgroundColor: getStatusBackgroundColor(t.status) }"
+      >
+        <img
+          style="height: 20px; width: 20px; align-self: center"
+          :src="getStatusImg(t.status)"
+        />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .card-container {

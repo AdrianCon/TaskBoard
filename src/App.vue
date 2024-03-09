@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import Tasks from "./components/Tasks.vue";
+import NewTaskDialog from "./components/NewTaskDialog.vue";
 </script>
 <template>
+  <NewTaskDialog :open="true" />
   <div>
     <header>
       <div class="task-title">
