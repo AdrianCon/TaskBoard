@@ -32,7 +32,6 @@ const closeModal = () => {
 };
 
 const handleSelectedIcon = (icon: number) => {
-  console.log(icon);
   form.value.icon = icon;
 };
 
@@ -103,7 +102,7 @@ watch(
               @selected="handleSelectedIcon"
               :selected="form.icon == index"
             >
-              <p>{{ emoji }} {{ form.icon == index }}</p>
+              <p>{{ emoji }}</p>
             </IconBox>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ref } from "vue";
 import Tasks from "./components/Tasks.vue";
 import NewTaskDialog from "./components/NewTaskDialog.vue";
 import { Task } from "./types";
+import { defaultTask } from "./common/constants";
 
 const isDialogOpen = ref(false);
 const dialogTask = ref({} as Task);
@@ -20,11 +21,9 @@ const handleOpenDialogEdit = (task: Task) => {
 };
 
 const handleCloseDialog = () => {
-  dialogTask.value = {} as Task;
+  dialogTask.value = defaultTask;
   isDialogOpen.value = false;
 };
-
-  console.log(isDialogOpen.value);
 </script>
 <template>
   <NewTaskDialog
