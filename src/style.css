@@ -46,6 +46,10 @@ p {
   color: black;
 }
 
+label{
+  color: black
+}
+
 .title {
   font-size: 40px;
   font-weight: 400;
@@ -69,8 +73,26 @@ p {
 .input-label {
   font-size: 12px;
   font-weight: 500;
+  color: var(--gray)
+}
+input, textarea {
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  padding: 0.6em 1.2em;
+  font-size: 16px ;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--black);
+  transition: border-color 0.25s;
+  width: 95%;
+  resize: none;
 }
 
+input, textarea:focus {
+  outline: none;
+  border:1px solid var(--blue);
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
