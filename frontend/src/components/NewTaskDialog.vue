@@ -120,9 +120,9 @@ watch(
 
 <style scoped>
 dialog {
-  margin: 10% auto;
-  width: 40%;
-  max-width: 620px;
+  margin: 30px 30px 30px auto;
+  width: 50%;
+  max-width: 900px;
   background-color: #fff;
   padding: 17px;
   border: 0;
