@@ -3,33 +3,34 @@ import { reactive } from 'vue';
 import { emojis } from '../common/constants';
 import IconBox from './IconBox.vue';
 import { Task } from '../types';
+import { getStatusBackgroundColor, getStatusImg } from '../utils';
 
 const emit = defineEmits(["open-dialog-edit"]);
 
-const tasks = reactive([
+const tasks: Task[] = reactive([
   {
     createdAt: "2024-03-08T06:06:45.520Z",
     title: "Task in Progress",
     icon: 5,
-    description: null,
+    description: "",
     status: 2,
-    id: "1",
+    id: 1,
   },
   {
     createdAt: "2024-03-08T06:06:45.520Z",
     title: "Task Completed",
     icon: 3,
-    description: null,
+    description: "",
     status: 1,
-    id: "1",
+    id: 2,
   },
   {
     createdAt: "2024-03-08T06:06:45.520Z",
     title: "Task Won't Do",
     icon: 2,
-    description: null,
+    description: "",
     status: 3,
-    id: "1",
+    id: 3,
   },
   {
     createdAt: "2024-03-08T06:06:45.520Z",
@@ -37,8 +38,8 @@ const tasks = reactive([
     icon: 4,
     description:
       "Work on a Challenge on devChallenges.io, learn TypeScript",
-    status: null,
-    id: "1",
+    status: undefined,
+    id: 4,
   },
 ]);
 
@@ -48,7 +49,7 @@ const tasks = reactive([
 //     .then((data) => tasks.push(...data));
 // }
 
-function getBackgroundColor(status: number | null) {
+function getBackgroundColor(status: number | undefined) {
   switch (status) {
     case 1:
       return "#a0ecb1"; //Completed
@@ -58,32 +59,6 @@ function getBackgroundColor(status: number | null) {
       return "#f7d4d3"; //Won't Do
     default:
       return "#e3e8ef"; // Default color for unknown status
-  }
-}
-
-function getStatusBackgroundColor(status: number | null) {
-  switch (status) {
-    case 1:
-      return "#32d657"; //Completed
-    case 2:
-      return "#e9a23b"; //In Progress
-    case 3:
-      return "#dd524c"; //Won't Do
-    default:
-      return "#e3e8ef"; // Default color for unknown status
-  }
-}
-
-function getStatusImg(status: number | null) {
-  switch (status) {
-    case 1:
-      return "/Done_round_duotone.svg";
-    case 2:
-      return "/Time_atack_duotone.svg";
-    case 3:
-      return "/close_ring_duotone.svg";
-    default:
-      return null;
   }
 }
 

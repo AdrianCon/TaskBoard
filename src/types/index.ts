@@ -3,6 +3,6 @@ export interface Task {
   title: string;
   description: string;
   icon: number;
-  status: number;
+  status: number | undefined;
   createdAt?: string;
 }

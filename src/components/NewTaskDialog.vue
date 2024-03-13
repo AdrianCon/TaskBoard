@@ -2,6 +2,7 @@
 import { ref, defineProps, watch, onMounted, reactive, shallowRef, toRefs, nextTick } from "vue";
 import IconBox from "./IconBox.vue";
 import Button from "./Button.vue";
+import StatusButtons from "./StatusButtons.vue";
 import { emojis, defaultTask } from "../common/constants";
 import { Task } from "../types";
 
@@ -33,6 +34,10 @@ const closeModal = () => {
 
 const handleSelectedIcon = (icon: number) => {
   form.value.icon = icon;
+};
+
+const handleSelectedStatus = (status: number) => {
+  form.value.status = status;
 };
 
 const handleSubmit = (e: Event) => {
@@ -109,6 +114,10 @@ watch(
       </div>
       <div class="form-field">
         <label class="input-label" for="task-time">Status</label>
+        <StatusButtons
+          :selectedStatus="form.status"
+          @selected-status="handleSelectedStatus"
+        />
       </div>
       <div class="form-buttons">
         <Button color="gray">Delete <img src="/Trash.svg" @click="handleSubmit"/></Button>
@@ -120,7 +129,7 @@ watch(
 
 <style scoped>
 dialog {
-  margin: 10% auto;
+  margin: auto;
   width: 40%;
   max-width: 620px;
   background-color: #fff;

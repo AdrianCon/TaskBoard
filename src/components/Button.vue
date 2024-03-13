@@ -4,23 +4,17 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: "Button",
-  props: {
-    type: {
-      type: String,
-      default: "button",
-    },
-    color: {
-      type: String,
-      default: "#3662e3",
-    }
+<script setup>
+const props = defineProps({
+  type: {
+    type: String,
+    default: "button",
   },
-  handleClick() {
-    this.$emit('click');
+  color: {
+    type: String,
+    default: "#3662e3",
   }
-}
+});
 </script>
 
 <style scoped>
